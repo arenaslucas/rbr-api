@@ -161,6 +161,7 @@ class AccountResponse(APIResponse):
     wallet: Wallet
     email: str
     devices: list[dict[str, str]]
+    custom_id: str | None  # Optional field, new in API
 
     def __init__(
         self: Self,
@@ -169,9 +170,21 @@ class AccountResponse(APIResponse):
         wallet: str,
         email: str,
         devices: list[dict[str, str]],
+        custom_id: str | None = None,
     ) -> None:
-        user["metadata"] = loads(user["metadata"])
-        super().__init__(user=user, wallet=loads(wallet), email=email, devices=devices)
+        # Safely load user["metadata"] and wallet JSON
+        if isinstance(user.get("metadata"), str):
+            user["metadata"] = loads(user["metadata"])
+        if isinstance(wallet, str):
+            wallet = loads(wallet)
+
+        super().__init__(
+            user=user,
+            wallet=wallet,
+            email=email,
+            devices=devices,
+            custom_id=custom_id,  # include new key
+        )
 
 
 class LootBoxResponses(APIResponse):
