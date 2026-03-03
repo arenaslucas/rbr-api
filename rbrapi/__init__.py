@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-__version__ = "0.7"
+__version__ = "0.7.1"
 
 from json import loads
 from typing import Optional, Self
