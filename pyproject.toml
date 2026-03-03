@@ -29,8 +29,8 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/rocket-bot-royale/api"
-Issues = "https://github.com/rocket-bot-royale/api/issues"
+Homepage = "https://github.com/arenaslucas/rbr-api"
+Issues = "https://github.com/arenaslucas/rbr-api/issues"
 
 [tool.setuptools]
 include-package-data = false
