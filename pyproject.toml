@@ -1,6 +1,6 @@
 [project]
 
-name = "rbrapi"
+name = "rbr-api-fork"
 version = "0.7.1"
 
 authors = [
